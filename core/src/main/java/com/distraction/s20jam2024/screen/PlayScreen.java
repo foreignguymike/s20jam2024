@@ -66,7 +66,9 @@ public class PlayScreen extends Screen {
             ));
         }
 
-        player = new Player(context);
+        player = new Player(context, walls);
+        player.x = 50;
+        player.y = 120;
     }
 
     @Override
@@ -74,6 +76,12 @@ public class PlayScreen extends Screen {
         player.left = Gdx.input.isKeyPressed(Input.Keys.LEFT);
         player.right = Gdx.input.isKeyPressed(Input.Keys.RIGHT);
         if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) player.jump();
+
+        // debug reset
+        if (Gdx.input.isKeyJustPressed(Input.Keys.R)) {
+            player.x = 50;
+            player.y = 120;
+        }
 
         player.update(dt);
     }

@@ -41,7 +41,15 @@ public class Entity {
         h = image.getRegionHeight();
     }
 
-    public void update(float dt) {}
+    public boolean overlaps(float x, float y, float w, float h) {
+        return this.x - this.w / 2 < x + w / 2
+            && this.x + this.w / 2 > x - w / 2
+            && this.y - this.h / 2 < y + h / 2
+            && this.y + this.h / 2 > y - h / 2;
+    }
+
+    public void update(float dt) {
+    }
 
     public void render(SpriteBatch sb) {
         if (debug) {
@@ -52,4 +60,8 @@ public class Entity {
         }
     }
 
+    @Override
+    public String toString() {
+        return "[" + x + ", " + y + ", " + w + ", " + h + "]";
+    }
 }
