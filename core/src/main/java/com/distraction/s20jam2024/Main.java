@@ -17,7 +17,16 @@ public class Main extends ApplicationAdapter {
     @Override
     public void create() {
         context = new Context();
-        context.sm.push(new PlayScreen(context, 0));
+        context.sm.push(new PlayScreen(
+            context,
+            new int[][]{
+                {0, 0, 0, 0, 0},
+                {0, 3, 5, 4, 0},
+                {0, 1, 0, 2, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0}
+            }
+        ));
         sb = new SpriteBatch();
     }
 

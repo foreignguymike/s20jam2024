@@ -13,4 +13,14 @@ public class Utils {
         sb.draw(image, x - w / 2, y - h / 2, w, h);
     }
 
+    public static int[][] flip(int[][] arr) {
+        int[][] ret = new int[arr.length][arr[0].length];
+        for (int row = 0; row < arr.length; row++) {
+            for (int col = 0; col < arr[row].length; col++) {
+                ret[arr.length - 1 - row][col] = arr[row][col];
+            }
+        }
+        return ret;
+    }
+
 }

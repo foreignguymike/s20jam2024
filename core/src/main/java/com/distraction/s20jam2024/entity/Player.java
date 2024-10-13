@@ -46,7 +46,6 @@ public class Player extends Entity {
         else if (left) dx = -SPEED;
         else if (right) dx = SPEED;
         else dx = 0;
-
         for (Entity wall : walls) {
             if (wall.overlaps(x + dx * dt, y, w, h)) {
                 if (dx > 0) {
