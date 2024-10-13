@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Player extends Entity {
 
-    private static final int SPEED = 160;
+    private static final int SPEED = 180;
     private static final int GRAV = -1500;
     private static final int JUMP = 550;
     private static final int MAX_FALL = -400;
@@ -16,7 +16,7 @@ public class Player extends Entity {
     public boolean left = false;
     public boolean right = false;
 
-    private List<Entity> walls;
+    private final List<Entity> walls;
 
     private boolean onGround = false;
     private boolean usedExtraJump = false;
@@ -47,27 +47,27 @@ public class Player extends Entity {
         else if (right) dx = SPEED;
         else dx = 0;
 
-        // collision check based on peyton burnham dY30Al6c43M
-
-        // x collision
         for (Entity wall : walls) {
             if (wall.overlaps(x + dx * dt, y, w, h)) {
-                float subPixel = dx < 0 ? -0.5f : 0.5f;
-                while (!wall.overlaps(x + subPixel, y, w, h)) x += subPixel;
+                if (dx > 0) {
+                    x = wall.x - wall.w / 2 - w / 2;
+                } else if (dx < 0) {
+                    x = wall.x + wall.w / 2 + w / 2;
+                }
                 dx = 0;
                 break;
             }
         }
 
-        // y collision
         dy += GRAV * dt;
         if (dy < MAX_FALL) dy = MAX_FALL;
         onGround = false;
         for (Entity wall : walls) {
             if (wall.overlaps(x, y + dy * dt, w, h)) {
-                float subPixel = dy < 0 ? -0.5f : 0.5f;
-                while (!wall.overlaps(x, y + subPixel, w, h)) y += subPixel;
-                if (dy < 0) {
+                if (dy > 0) {
+                    y = wall.y - wall.h / 2 - h / 2;
+                } else if (dy < 0) {
+                    y = wall.y + wall.h / 2 + h / 2;
                     onGround = true;
                     usedExtraJump = false;
                 }
