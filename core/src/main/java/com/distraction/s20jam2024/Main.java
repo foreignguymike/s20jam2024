@@ -17,7 +17,7 @@ public class Main extends ApplicationAdapter {
     @Override
     public void create() {
         context = new Context();
-        context.sm.push(new PlayScreen(context));
+        context.sm.push(new PlayScreen(context, 0));
         sb = new SpriteBatch();
     }
 
