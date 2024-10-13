@@ -1,5 +1,7 @@
 package com.distraction.s20jam2024.screen;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.MapGroupLayer;
 import com.badlogic.gdx.maps.MapLayer;
@@ -12,6 +14,7 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.distraction.s20jam2024.Context;
 import com.distraction.s20jam2024.entity.Entity;
 import com.distraction.s20jam2024.entity.Item;
+import com.distraction.s20jam2024.entity.Player;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -25,6 +28,7 @@ public class PlayScreen extends Screen {
 
     private List<Item> items = new ArrayList<>();
     private List<Entity> walls = new ArrayList<>();
+    private Player player;
 
     public PlayScreen(Context context, int index) {
         super(context);
@@ -61,11 +65,17 @@ public class PlayScreen extends Screen {
                 props.get("y", Float.class)
             ));
         }
+
+        player = new Player(context);
     }
 
     @Override
     public void update(float dt) {
+        player.left = Gdx.input.isKeyPressed(Input.Keys.LEFT);
+        player.right = Gdx.input.isKeyPressed(Input.Keys.RIGHT);
+        if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) player.jump();
 
+        player.update(dt);
     }
 
     @Override
@@ -75,6 +85,7 @@ public class PlayScreen extends Screen {
         tiledMapRenderer.setView(cam);
         tiledMapRenderer.render(renderLayer);
         for (Item item : items) item.render(sb);
+        player.render(sb);
         for (Entity wall : walls) wall.render(sb);
         sb.end();
     }

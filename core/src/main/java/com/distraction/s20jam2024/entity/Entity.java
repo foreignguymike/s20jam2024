@@ -13,6 +13,9 @@ public class Entity {
     public float w;
     public float h;
 
+    public float dx;
+    public float dy;
+
     protected TextureRegion image;
     protected TextureRegion pixel;
 
@@ -44,7 +47,6 @@ public class Entity {
         if (debug) {
             sb.draw(pixel, x - w / 2, y - h / 2, w, 1);
             sb.draw(pixel, x - w / 2, y + h / 2, w, 1);
-
             sb.draw(pixel, x - w / 2, y - h / 2, 1, h);
             sb.draw(pixel, x + w / 2, y - h / 2, 1, h);
         }
