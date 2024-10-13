@@ -152,6 +152,7 @@ public class PlayScreen extends Screen {
         }
 
         player.update(dt);
+        for (Item item : items) item.update(dt);
     }
 
     @Override

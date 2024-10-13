@@ -2,6 +2,7 @@ package com.distraction.s20jam2024.entity;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.distraction.s20jam2024.Animation;
 import com.distraction.s20jam2024.Context;
 
 public class Entity {
@@ -16,6 +17,7 @@ public class Entity {
     public float dx;
     public float dy;
 
+    protected Animation animation;
     protected TextureRegion image;
     protected TextureRegion pixel;
 

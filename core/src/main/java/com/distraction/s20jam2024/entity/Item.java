@@ -1,6 +1,8 @@
 package com.distraction.s20jam2024.entity;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.distraction.s20jam2024.Animation;
 import com.distraction.s20jam2024.Context;
 
 import java.util.Objects;
@@ -36,12 +38,19 @@ public class Item extends Entity {
         this.x = x;
         this.y = y;
 
-        setImage(context.getImage(itemType.key));
+        try {
+            TextureRegion tr = context.getImage(itemType.key);
+            animation = new Animation(new TextureRegion[] {tr});
+        } catch (Exception e) {
+            TextureRegion[] anim = context.getImages(itemType.key);
+            animation = new Animation(anim, 1f / 10f);
+        }
     }
 
     @Override
     public void update(float dt) {
-
+        animation.update(dt);
+        setImage(animation.getImage());
     }
 
     @Override

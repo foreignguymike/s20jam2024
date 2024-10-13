@@ -8,6 +8,9 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.distraction.s20jam2024.screen.ScreenManager;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Context {
 
     private static final String TILED_FILE = "tiled.tmx";
@@ -34,6 +37,17 @@ public class Context {
         TextureRegion region = assets.get(ATLAS_FILE, TextureAtlas.class).findRegion(key);
         if (region == null) throw new IllegalStateException("image " + key + " not found");
         return region;
+    }
+
+    public TextureRegion[] getImages(String key) {
+        int count = 1;
+        List<TextureRegion> list = new ArrayList<>();
+        while (true) {
+            TextureRegion region = assets.get(ATLAS_FILE, TextureAtlas.class).findRegion(key + count++);
+            if (region == null) break;
+            list.add(region);
+        }
+        return list.toArray(new TextureRegion[0]);
     }
 
     public TextureRegion getPixel() {
