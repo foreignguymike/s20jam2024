@@ -1,7 +1,11 @@
 s20jam2024.png
-size:32,32
+size:128,64
 repeat:none
 candle
-bounds:2,2,10,28
+bounds:112,34,10,28
+end
+bounds:2,2,70,60
 pixel
-bounds:14,29,1,1
+bounds:74,4,1,1
+start
+bounds:74,7,36,55

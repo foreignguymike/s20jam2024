@@ -8,7 +8,9 @@ import java.util.Objects;
 public class Item extends Entity {
 
     public enum ItemType {
-        CANDLE("candle");
+        CANDLE("candle"),
+        START("start"),
+        END("end");
 
         public final String key;
 

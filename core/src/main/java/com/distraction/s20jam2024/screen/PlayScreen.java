@@ -52,11 +52,17 @@ public class PlayScreen extends Screen {
         tileCam = new OrthographicCamera();
         tileCam.setToOrtho(false, Constants.WIDTH, Constants.HEIGHT);
 
-        player = new Player(context, walls);
-        player.x = 320 + 120;
-        player.y = 240 + 240 + 200;
-
         parseMaze(maze);
+
+        player = new Player(context, walls);
+        for (Item item : items) {
+            if (item.itemType == Item.ItemType.START) {
+                player.x = item.x;
+                player.y = item.y;
+                break;
+            }
+        }
+        setRoom((int) (player.y / Constants.HEIGHT), (int) (player.x / Constants.WIDTH));
     }
 
     private void parseMaze(int[][] maze) {
@@ -75,6 +81,7 @@ public class PlayScreen extends Screen {
                 int roomType = maze[row][col];
                 if (roomType > 0) {
                     MapGroupLayer groupLayer = (MapGroupLayer) tiledMap.getLayers().get("room" + roomType);
+                    int groupIndex = tiledMap.getLayers().getIndex("room" + roomType);
                     MapLayer collisionLayer = groupLayer.getLayers().get("collision");
                     MapLayer itemLayer = groupLayer.getLayers().get("items");
 
@@ -88,7 +95,7 @@ public class PlayScreen extends Screen {
                         walls.add(new Entity(context, x, y, w, h));
                     }
                     for (Entity wall : walls) {
-                        wall.debug = true;
+//                        wall.debug = true;
                     }
 
                     List<Item> items = new ArrayList<>();
@@ -101,15 +108,13 @@ public class PlayScreen extends Screen {
                             props.get("y", Float.class) + row * Constants.HEIGHT
                         ));
                     }
-                    rooms[row][col] = new Room(roomType, walls, items);
+                    rooms[row][col] = new Room(roomType, groupIndex, walls, items);
 
                     this.walls.addAll(walls);
                     this.items.addAll(items);
                 }
             }
         }
-
-        setRoom(2, 1);
     }
 
     private void setRoom(int row, int col) {
@@ -124,7 +129,7 @@ public class PlayScreen extends Screen {
         cam.update();
 
         Room room = rooms[row][col];
-        renderLayer[0] = room.type - 1;
+        renderLayer[0] = room.index;
     }
 
     @Override

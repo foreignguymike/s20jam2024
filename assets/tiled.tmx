@@ -1,9 +1,273 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="8" height="6" tilewidth="40" tileheight="40" infinite="0" nextlayerid="25" nextobjectid="77">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="8" height="6" tilewidth="40" tileheight="40" infinite="0" nextlayerid="63" nextobjectid="136">
  <editorsettings>
   <export target="tiled.tmj" format="json"/>
  </editorsettings>
  <tileset firstgid="1" source="tileset.tsx"/>
+ <group id="55" name="room14" visible="0">
+  <layer id="56" name="room" width="8" height="6">
+   <data encoding="csv">
+6,11,0,0,0,0,9,6,
+7,0,0,0,0,0,0,5,
+7,0,1,2,2,3,0,5,
+7,0,0,0,0,0,0,5,
+7,0,0,0,0,0,0,5,
+6,2,2,2,2,2,2,6
+</data>
+  </layer>
+  <objectgroup id="57" name="collision">
+   <object id="123" x="0" y="0" width="80" height="40"/>
+   <object id="124" x="0" y="40" width="40" height="160"/>
+   <object id="125" x="40" y="200" width="240" height="40"/>
+   <object id="133" x="280" y="40" width="40" height="160"/>
+   <object id="134" x="240" y="0" width="80" height="40"/>
+   <object id="135" x="80" y="80" width="160" height="40"/>
+  </objectgroup>
+  <objectgroup id="58" name="items">
+   <object id="126" x="160" y="52.5">
+    <properties>
+     <property name="type" value="candle"/>
+    </properties>
+    <point/>
+   </object>
+   <object id="127" x="160" y="170">
+    <properties>
+     <property name="type" value="end"/>
+    </properties>
+    <point/>
+   </object>
+  </objectgroup>
+ </group>
+ <group id="59" name="room13" visible="0">
+  <layer id="60" name="room" width="8" height="6">
+   <data encoding="csv">
+6,10,10,10,10,10,10,10,
+7,0,0,0,0,0,0,0,
+7,0,0,0,0,0,0,0,
+7,0,0,0,0,0,0,0,
+7,0,0,0,0,0,0,0,
+6,2,2,2,2,2,2,2
+</data>
+  </layer>
+  <objectgroup id="61" name="collision">
+   <object id="128" x="80" y="0" width="240" height="40"/>
+   <object id="129" x="40" y="40" width="40" height="160"/>
+   <object id="130" x="80" y="200" width="240" height="40"/>
+  </objectgroup>
+  <objectgroup id="62" name="items">
+   <object id="131" x="258.5" y="127">
+    <properties>
+     <property name="type" value="candle"/>
+    </properties>
+    <point/>
+   </object>
+   <object id="132" x="166" y="170">
+    <properties>
+     <property name="type" value="end"/>
+    </properties>
+    <point/>
+   </object>
+  </objectgroup>
+ </group>
+ <group id="43" name="room12" visible="0">
+  <layer id="44" name="room" width="8" height="6">
+   <data encoding="csv">
+6,10,10,10,10,10,10,6,
+7,0,0,0,0,0,0,5,
+7,0,0,0,0,0,0,5,
+7,0,1,2,2,3,0,5,
+7,0,0,0,0,0,0,5,
+6,3,0,0,0,0,1,6
+</data>
+  </layer>
+  <objectgroup id="45" name="collision">
+   <object id="101" x="40" y="0" width="240" height="40"/>
+   <object id="102" x="280" y="40" width="40" height="200"/>
+   <object id="103" x="0" y="40" width="40" height="200"/>
+   <object id="114" x="80" y="120" width="160" height="40"/>
+   <object id="115" x="40" y="200" width="40" height="40"/>
+   <object id="116" x="240" y="200" width="40" height="40"/>
+  </objectgroup>
+  <objectgroup id="46" name="items">
+   <object id="104" x="159" y="196.5">
+    <properties>
+     <property name="type" value="candle"/>
+    </properties>
+    <point/>
+   </object>
+   <object id="122" x="160" y="86.5">
+    <properties>
+     <property name="type" value="end"/>
+    </properties>
+    <point/>
+   </object>
+  </objectgroup>
+ </group>
+ <group id="47" name="room11">
+  <layer id="48" name="room" width="8" height="6">
+   <data encoding="csv">
+10,10,10,10,10,10,10,6,
+0,0,0,0,0,0,0,5,
+0,0,0,0,0,0,0,5,
+0,0,0,0,0,0,0,5,
+0,0,0,0,0,0,0,5,
+2,2,2,2,2,2,2,6
+</data>
+  </layer>
+  <objectgroup id="49" name="collision">
+   <object id="105" x="0" y="0" width="280" height="40"/>
+   <object id="106" x="280" y="40" width="40" height="160"/>
+   <object id="107" x="0" y="200" width="280" height="40"/>
+  </objectgroup>
+  <objectgroup id="50" name="items">
+   <object id="108" x="44.5" y="142.5">
+    <properties>
+     <property name="type" value="candle"/>
+    </properties>
+    <point/>
+   </object>
+   <object id="121" x="193" y="169">
+    <properties>
+     <property name="type" value="end"/>
+    </properties>
+    <point/>
+   </object>
+  </objectgroup>
+ </group>
+ <group id="51" name="room10" visible="0">
+  <layer id="52" name="room" width="8" height="6">
+   <data encoding="csv">
+6,6,10,10,10,10,6,6,
+6,7,0,0,0,0,5,6,
+6,7,0,0,0,0,5,6,
+6,7,0,1,3,0,5,6,
+6,7,0,0,0,0,5,6,
+6,7,0,0,0,0,5,6
+</data>
+  </layer>
+  <objectgroup id="53" name="collision">
+   <object id="109" x="40" y="0" width="240" height="40"/>
+   <object id="110" x="240" y="40" width="40" height="200"/>
+   <object id="111" x="40" y="40" width="40" height="200"/>
+   <object id="113" x="120" y="120" width="80" height="40"/>
+  </objectgroup>
+  <objectgroup id="54" name="items">
+   <object id="112" x="159" y="196.5">
+    <properties>
+     <property name="type" value="candle"/>
+    </properties>
+    <point/>
+   </object>
+   <object id="120" x="161" y="90.5">
+    <properties>
+     <property name="type" value="start"/>
+    </properties>
+    <point/>
+   </object>
+  </objectgroup>
+ </group>
+ <group id="39" name="room9" visible="0">
+  <layer id="40" name="room" width="8" height="6">
+   <data encoding="csv">
+10,10,10,10,10,10,6,6,
+0,0,0,0,0,0,5,6,
+0,0,0,0,0,0,5,6,
+0,0,0,0,0,0,5,6,
+0,0,0,0,0,0,5,6,
+2,2,2,2,2,2,6,6
+</data>
+  </layer>
+  <objectgroup id="41" name="collision">
+   <object id="97" x="0" y="0" width="240" height="40"/>
+   <object id="98" x="240" y="40" width="40" height="160"/>
+   <object id="99" x="0" y="200" width="240" height="40"/>
+  </objectgroup>
+  <objectgroup id="42" name="items">
+   <object id="100" x="44.5" y="142.5">
+    <properties>
+     <property name="type" value="candle"/>
+    </properties>
+    <point/>
+   </object>
+   <object id="119" x="167.5" y="166.5">
+    <properties>
+     <property name="type" value="start"/>
+    </properties>
+    <point/>
+   </object>
+  </objectgroup>
+ </group>
+ <group id="27" name="room8" visible="0">
+  <layer id="28" name="room" width="8" height="6">
+   <data encoding="csv">
+6,11,0,0,0,0,9,6,
+7,0,0,0,0,0,0,5,
+7,0,0,1,3,0,0,5,
+7,0,0,0,0,0,0,5,
+7,0,0,0,0,0,0,5,
+6,2,2,2,2,2,2,6
+</data>
+  </layer>
+  <objectgroup id="29" name="collision">
+   <object id="77" x="0" y="0" width="80" height="40"/>
+   <object id="78" x="240" y="0" width="80" height="40"/>
+   <object id="79" x="0" y="40" width="40" height="160"/>
+   <object id="80" x="40" y="200" width="240" height="40"/>
+   <object id="83" x="280" y="40" width="40" height="160"/>
+   <object id="84" x="120" y="80" width="80" height="40"/>
+  </objectgroup>
+  <objectgroup id="30" name="items">
+   <object id="81" x="78" y="127.5">
+    <properties>
+     <property name="type" value="candle"/>
+    </properties>
+    <point/>
+   </object>
+   <object id="82" x="244.5" y="127.5">
+    <properties>
+     <property name="type" value="candle"/>
+    </properties>
+    <point/>
+   </object>
+   <object id="118" x="160.5" y="169">
+    <properties>
+     <property name="type" value="start"/>
+    </properties>
+    <point/>
+   </object>
+  </objectgroup>
+ </group>
+ <group id="31" name="room7" visible="0">
+  <layer id="32" name="room" width="8" height="6">
+   <data encoding="csv">
+6,6,10,10,10,10,10,10,
+6,7,0,0,0,0,0,0,
+6,7,0,0,0,0,0,0,
+6,7,0,0,0,0,0,0,
+6,7,0,0,0,0,0,0,
+6,6,2,2,2,2,2,2
+</data>
+  </layer>
+  <objectgroup id="33" name="collision">
+   <object id="85" x="80" y="0" width="240" height="40"/>
+   <object id="87" x="40" y="40" width="40" height="160"/>
+   <object id="88" x="80" y="200" width="240" height="40"/>
+  </objectgroup>
+  <objectgroup id="34" name="items">
+   <object id="92" x="258.5" y="127">
+    <properties>
+     <property name="type" value="candle"/>
+    </properties>
+    <point/>
+   </object>
+   <object id="117" x="166" y="172">
+    <properties>
+     <property name="type" value="start"/>
+    </properties>
+    <point/>
+   </object>
+  </objectgroup>
+ </group>
  <group id="2" name="room1" visible="0">
   <layer id="1" name="room" width="8" height="6">
    <data encoding="csv">
@@ -68,7 +332,7 @@
    </object>
   </objectgroup>
  </group>
- <group id="9" name="room3">
+ <group id="9" name="room3" visible="0">
   <layer id="11" name="room" width="8" height="6">
    <data encoding="csv">
 6,10,10,10,10,10,10,10,
