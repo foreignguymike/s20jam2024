@@ -10,8 +10,8 @@ public class Room {
     /**
      * Room types:
      * 1 - left up
-     * 2 - up right
-     * 3 - down right
+     * 2 - right up
+     * 3 - right down
      * 4 - left down
      * 5 - left right
      * 6 - up down

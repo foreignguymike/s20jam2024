@@ -24,17 +24,6 @@ public class Main extends ApplicationAdapter {
     public void create() {
         context = new Context();
         context.sm.push(new MapScreen(context));
-
-        context.sm.push(new PlayScreen(
-            context,
-            new int[][]{
-                {00, RD, LR, ER, 00},
-                {00, RU, LD, 00, 00},
-                {00, 00, UD, 00, 00},
-                {00, RD, LU, 00, 00},
-                {00, SU, 00, 00, 00}
-            }
-        ));
         sb = new SpriteBatch();
     }
 

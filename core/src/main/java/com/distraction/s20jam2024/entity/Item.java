@@ -45,6 +45,7 @@ public class Item extends Entity {
             TextureRegion[] anim = context.getImages(itemType.key);
             animation = new Animation(anim, 1f / 10f);
         }
+        setImage(animation.getImage());
     }
 
     @Override

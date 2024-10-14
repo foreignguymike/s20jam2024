@@ -153,6 +153,11 @@ public class PlayScreen extends Screen {
 
         player.update(dt);
         for (Item item : items) item.update(dt);
+
+        if (Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
+            context.sm.pop();
+            context.sm.replace(new MapScreen(context));
+        }
     }
 
     @Override
