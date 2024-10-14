@@ -6,11 +6,10 @@ import com.distraction.s20jam2024.Context;
 
 public class MapScreen extends Screen {
 
-    private TextureRegion bg;
+    private final TextureRegion bg;
 
     public MapScreen(Context context) {
         super(context);
-
         bg = context.getImage("mapbook");
     }
 
