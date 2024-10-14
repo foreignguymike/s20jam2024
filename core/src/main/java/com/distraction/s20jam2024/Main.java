@@ -1,9 +1,13 @@
 package com.distraction.s20jam2024;
 
+import static com.distraction.s20jam2024.Room.*;
+
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
+import com.distraction.s20jam2024.screen.MapScreen;
 import com.distraction.s20jam2024.screen.PlayScreen;
 
 /**
@@ -11,28 +15,32 @@ import com.distraction.s20jam2024.screen.PlayScreen;
  */
 public class Main extends ApplicationAdapter {
 
+    private static final Color BG = Color.valueOf("202020");
+
     private Context context;
     private SpriteBatch sb;
 
     @Override
     public void create() {
         context = new Context();
-        context.sm.push(new PlayScreen(
-            context,
-            new int[][]{
-                {0, 0, 0, 0, 0},
-                {0, 3, 5, 4, 0},
-                {7, 1, 0, 2, 11},
-                {0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0}
-            }
-        ));
+        context.sm.push(new MapScreen(context));
+
+//        context.sm.push(new PlayScreen(
+//            context,
+//            new int[][]{
+//                {00, 00, 00, EU, 00},
+//                {00, 00, RD, LU, 00},
+//                {00, 00, UD, 00, 00},
+//                {00, RD, LU, 00, 00},
+//                {00, SU, 00, 00, 00}
+//            }
+//        ));
         sb = new SpriteBatch();
     }
 
     @Override
     public void render() {
-        ScreenUtils.clear(0.15f, 0.15f, 0.2f, 1f);
+        ScreenUtils.clear(BG);
         context.sm.update(Gdx.graphics.getDeltaTime());
         context.sm.render(sb);
     }
