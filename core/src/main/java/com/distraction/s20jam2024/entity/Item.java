@@ -26,7 +26,7 @@ public class Item extends Entity {
                     return itemType;
                 }
             }
-            throw new IllegalArgumentException("unknown item " + type);
+            return null;
         }
     }
 

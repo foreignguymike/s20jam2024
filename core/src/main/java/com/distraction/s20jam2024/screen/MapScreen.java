@@ -45,7 +45,7 @@ public class MapScreen extends Screen {
         }
     }
 
-    private static final int MAX_LENGTH = 8;
+    private static final int MAX_LENGTH = 4;
 
     private final TextureRegion bg;
 

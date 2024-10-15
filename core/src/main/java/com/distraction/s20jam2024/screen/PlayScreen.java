@@ -95,12 +95,15 @@ public class PlayScreen extends Screen {
                     List<Item> items = new ArrayList<>();
                     for (MapObject object : itemLayer.getObjects()) {
                         MapProperties props = object.getProperties();
-                        items.add(new Item(
-                            context,
-                            Item.ItemType.parse(props.get("type", String.class)),
-                            props.get("x", Float.class) + col * Constants.WIDTH,
-                            props.get("y", Float.class) + row * Constants.HEIGHT
-                        ));
+                        Item.ItemType itemType = Item.ItemType.parse(props.get("type", String.class));
+                        if (itemType != null) {
+                            items.add(new Item(
+                                context,
+                                itemType,
+                                props.get("x", Float.class) + col * Constants.WIDTH,
+                                props.get("y", Float.class) + row * Constants.HEIGHT
+                            ));
+                        }
                     }
                     rooms[row][col] = new Room(roomType, groupIndex, walls, items);
 
