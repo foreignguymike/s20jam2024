@@ -1,14 +1,11 @@
 package com.distraction.s20jam2024;
 
-import static com.distraction.s20jam2024.Room.*;
-
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.distraction.s20jam2024.screen.MapScreen;
-import com.distraction.s20jam2024.screen.PlayScreen;
 
 /**
  * {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms.

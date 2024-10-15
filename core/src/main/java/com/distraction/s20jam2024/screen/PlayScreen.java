@@ -27,15 +27,14 @@ import java.util.List;
 
 public class PlayScreen extends Screen {
 
-    private TiledMap tiledMap;
     private TiledMapRenderer tiledMapRenderer;
-    private int[] renderLayer = new int[]{0};
+    private final int[] renderLayer = new int[]{0};
 
-    private List<Item> items = new ArrayList<>();
-    private List<Entity> walls = new ArrayList<>();
-    private Player player;
+    private final List<Item> items = new ArrayList<>();
+    private final List<Entity> walls = new ArrayList<>();
+    private final Player player;
 
-    private OrthographicCamera tileCam;
+    private final OrthographicCamera tileCam;
     private Room[][] rooms;
 
     private int roomRow;
@@ -44,8 +43,6 @@ public class PlayScreen extends Screen {
     private int roomRight;
     private int roomTop;
     private int roomBottom;
-
-    private Vector3 mouse = new Vector3();
 
     public PlayScreen(Context context, int[][] maze) {
         super(context);
@@ -70,7 +67,7 @@ public class PlayScreen extends Screen {
 
         maze = Utils.flip(maze);
 
-        tiledMap = context.getTiles();
+        TiledMap tiledMap = context.getTiles();
         for (int i = 0; i < tiledMap.getLayers().size(); i++) {
             tiledMap.getLayers().get(i).setVisible(true);
         }
@@ -93,9 +90,6 @@ public class PlayScreen extends Screen {
                         float x = props.get("x", Float.class) + w / 2 + col * Constants.WIDTH;
                         float y = props.get("y", Float.class) + h / 2 + row * Constants.HEIGHT;
                         walls.add(new Entity(context, x, y, w, h));
-                    }
-                    for (Entity wall : walls) {
-//                        wall.debug = true;
                     }
 
                     List<Item> items = new ArrayList<>();
@@ -134,12 +128,9 @@ public class PlayScreen extends Screen {
 
     @Override
     public void update(float dt) {
-        player.left = Gdx.input.isKeyPressed(Input.Keys.LEFT);
-        player.right = Gdx.input.isKeyPressed(Input.Keys.RIGHT);
+        player.left = Gdx.input.isKeyPressed(Input.Keys.LEFT) || Gdx.input.isKeyPressed(Input.Keys.A);
+        player.right = Gdx.input.isKeyPressed(Input.Keys.RIGHT) || Gdx.input.isKeyPressed(Input.Keys.D);
         if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) player.jump();
-
-        mouse.set(Gdx.input.getX(), Gdx.input.getY(), 0);
-        cam.unproject(mouse);
 
         if (player.x < roomLeft) {
             setRoom(roomRow, roomCol - 1);

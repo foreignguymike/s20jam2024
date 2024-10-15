@@ -3,7 +3,11 @@ package com.distraction.s20jam2024;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
+import java.util.Random;
+
 public class Utils {
+
+    private static final Random random = new Random();
 
     public static void drawCentered(SpriteBatch sb, TextureRegion image, float x, float y) {
         sb.draw(image, x - image.getRegionWidth() / 2f, y - image.getRegionHeight() / 2f);
@@ -21,6 +25,10 @@ public class Utils {
             }
         }
         return ret;
+    }
+
+    public static int nextInt(int max) {
+        return random.nextInt(max);
     }
 
 }

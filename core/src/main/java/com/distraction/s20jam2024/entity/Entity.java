@@ -43,6 +43,10 @@ public class Entity {
         h = image.getRegionHeight();
     }
 
+    public boolean contains(float x, float y) {
+        return x > this.x - w / 2 && x < this.x + w / 2 && y > this.y - h / 2 && y < this.y + h / 2;
+    }
+
     public boolean overlaps(float x, float y, float w, float h) {
         return this.x - this.w / 2 < x + w / 2
             && this.x + this.w / 2 > x - w / 2
